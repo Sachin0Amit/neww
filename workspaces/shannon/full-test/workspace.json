@@ -1,0 +1,74 @@
+{
+  "id": "ws-74505b76",
+  "name": "full-test",
+  "targetUrl": "https://example.com",
+  "repoPath": "test-app",
+  "config": {
+    "vuln_classes": [
+      "injection"
+    ],
+    "exploit": "false",
+    "pipeline": {}
+  },
+  "status": "running",
+  "createdAt": "2026-06-08T11:52:01.805Z",
+  "agentMetrics": {},
+  "pipeline": [
+    {
+      "phase": "preflight",
+      "status": "completed",
+      "agents": []
+    },
+    {
+      "phase": "pre-recon",
+      "status": "in_progress",
+      "agents": [
+        {
+          "name": "pre-recon",
+          "status": "in_progress",
+          "progress": 20,
+          "model": "glm-4-plus",
+          "startTime": 1780919521883
+        }
+      ]
+    },
+    {
+      "phase": "recon",
+      "status": "pending",
+      "agents": [
+        {
+          "name": "recon",
+          "status": "pending",
+          "progress": 0,
+          "model": "medium"
+        }
+      ]
+    },
+    {
+      "phase": "vuln-analysis",
+      "status": "pending",
+      "agents": [
+        {
+          "name": "injection-vuln",
+          "status": "pending",
+          "progress": 0,
+          "model": "medium"
+        }
+      ]
+    },
+    {
+      "phase": "reporting",
+      "status": "pending",
+      "agents": [
+        {
+          "name": "report",
+          "status": "pending",
+          "progress": 0,
+          "model": "medium"
+        }
+      ]
+    }
+  ],
+  "currentPhase": "pre-recon",
+  "currentAgent": "pre-recon"
+}

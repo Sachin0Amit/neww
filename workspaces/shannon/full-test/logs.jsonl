@@ -1,0 +1,8 @@
+{"timestamp":"2026-06-08T11:52:01.811Z","level":"info","message":"Pipeline started"}
+{"timestamp":"2026-06-08T11:52:01.826Z","level":"info","message":"Starting phase: preflight"}
+{"timestamp":"2026-06-08T11:52:01.829Z","level":"info","message":"Running preflight checks..."}
+{"timestamp":"2026-06-08T11:52:01.878Z","level":"info","message":"Target reachable: 200 OK"}
+{"timestamp":"2026-06-08T11:52:01.879Z","level":"info","message":"Preflight checks completed"}
+{"timestamp":"2026-06-08T11:52:01.880Z","level":"info","message":"Phase completed: preflight"}
+{"timestamp":"2026-06-08T11:52:01.881Z","level":"info","message":"Starting phase: pre-recon"}
+{"timestamp":"2026-06-08T11:52:01.884Z","level":"info","message":"Starting agent: Pre-Reconnaissance (glm-4-plus)"}

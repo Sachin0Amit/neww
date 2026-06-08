@@ -1,0 +1,135 @@
+services:
+  hayhooks:
+    build: .
+    expose: ["1416"]
+    volumes:
+      - ./pipelines:/pipelines
+    env_file:
+      - .env
+    depends_on:
+      - google-maps
+      - optimal-route
+      - perplexity
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "24"
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:v0.9.5
+    container_name: open-webui
+    volumes:
+      - open-webui:/app/backend/data
+    ports:
+      - ${OPEN_WEBUI_PORT-3000}:8080
+    environment:
+      # Point Open WebUI's OpenAI-compatible client at hayhooks
+      OPENAI_API_BASE_URL: http://hayhooks:1416
+      OPENAI_API_KEY: "dummy"
+      # Auth disabled for local use — anyone with the URL gets in
+      WEBUI_AUTH: "False"
+      # UI features
+      ENABLE_TAGS_GENERATION: "True"
+      ENABLE_TITLE_GENERATION: "True"
+      ENABLE_FOLLOW_UP_GENERATION: "False"
+      ENABLE_EVALUATION_ARENA_MODELS: "False"
+      ENABLE_AUTOCOMPLETE_GENERATION: "False"
+      ENABLE_CODE_EXECUTION: "False"
+      ENABLE_OLLAMA_API: "False"
+      ENABLE_DIRECT_CONNECTIONS: "False"
+      # Keep the UI focused on the itinerary agent
+      # (see: https://docs.openwebui.com/getting-started/env-configuration/#user-permissions)
+      USER_PERMISSIONS_FEATURES_DIRECT_TOOL_SERVERS: "False"
+      USER_PERMISSIONS_FEATURES_WEB_SEARCH: "False"
+      USER_PERMISSIONS_FEATURES_IMAGE_GENERATION: "False"
+      USER_PERMISSIONS_FEATURES_CODE_INTERPRETER: "False"
+      USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ACCESS: "False"
+      USER_PERMISSIONS_WORKSPACE_PROMPTS_ACCESS: "False"
+      USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS: "False"
+      USER_PERMISSIONS_CHAT_MULTIPLE_MODELS: "False"
+      USER_PERMISSIONS_CHAT_STT: "False"
+      USER_PERMISSIONS_CHAT_TTS: "False"
+      USER_PERMISSIONS_CHAT_CALL: "False"
+      USER_PERMISSIONS_CHAT_SYSTEM_PROMPT: "False"
+      USER_PERMISSIONS_CHAT_VALVES: "False"
+      USER_PERMISSIONS_CHAT_CONTROLS: "False"
+      USER_PERMISSIONS_CHAT_PARAMS: "False"
+      USER_PERMISSIONS_CHAT_FILE_UPLOAD: "False"
+      OFFLINE_MODE: "True"
+      ENABLE_API_KEY: "False"
+      ENABLE_API_KEY_ENDPOINT_RESTRICTIONS: "True"
+      DEFAULT_PROMPT_SUGGESTIONS: |-
+        [
+          {
+            "title": ["3-day in Japan", "Street Food + Culture"],
+            "content": "Plan a 3-day trip to Japan focusing on street food and culture. I prefer boutique hotels, have a moderate budget, and will be traveling by train. I want to visit Tokyo, Kyoto, and Osaka."
+          },
+          {
+            "title": ["4-day in California", "National Parks + Coast"],
+            "content": "Plan a 4-day California road trip focusing on national parks and coastal drives. I prefer cozy motels and cabins, have a moderate budget, and will be traveling by rental car. I want to visit San Francisco, Big Sur, Santa Barbara, Joshua Tree, and Yosemite."
+          },
+          {
+            "title": ["Weekend in Barcelona", "Architecture + Tapas"],
+            "content": "Plan a 2-day weekend trip to Barcelona focusing on architecture and tapas. I prefer central 4-star hotels, have a moderate budget, and will be traveling by public transport. I want to visit Sagrada Familia, Park Guell, the Gothic Quarter, and Barceloneta beach."
+          }
+        ]
+    depends_on:
+      - hayhooks
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "24"
+
+  # MCP servers required by itinerary_agent pipeline
+
+  google-maps:
+    image: supercorp/supergateway
+    expose: ["8100"]
+    environment:
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+    entrypoint: /bin/sh -c
+    command: >
+      'test -z "$GOOGLE_MAPS_API_KEY" &&
+         { echo "❌ GOOGLE_MAPS_API_KEY missing"; exit 1; };
+       exec supergateway --stdio "npx -y @modelcontextprotocol/server-google-maps" --outputTransport streamableHttp --port 8100'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "24"
+
+  optimal-route:
+    image: vblagoje/optimal-route
+    platform: linux/amd64
+    expose: ["8080"]
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - MCP_TRANSPORT=streamable-http
+      # The MCP Python SDK enables DNS-rebinding protection by default, which
+      # rejects requests whose Host header doesn't match the allowlist. Disable
+      # it so the service accepts requests coming from other docker-compose
+      # services using the docker network DNS name.
+      - FASTMCP_TRANSPORT_SECURITY__ENABLE_DNS_REBINDING_PROTECTION=false
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "24"
+
+  perplexity:
+    # Build from official Perplexity MCP server repo with native HTTP support
+    # See: https://github.com/perplexityai/modelcontextprotocol
+    build:
+      context: https://github.com/perplexityai/modelcontextprotocol.git
+    expose: ["8080"]
+    environment:
+      - PERPLEXITY_API_KEY=${PERPLEXITY_API_KEY}
+      - PORT=8080
+      - BIND_ADDRESS=0.0.0.0
+      - ALLOWED_ORIGINS=*
+
+volumes:
+  open-webui:
