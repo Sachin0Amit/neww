@@ -1,0 +1,616 @@
+{
+  "config": {
+    "topic": "Introduction to Machine Learning",
+    "canvasFormat": "ppt169",
+    "style": "tech",
+    "slideCount": 5,
+    "language": "en",
+    "includeImages": false,
+    "includeCharts": true,
+    "author": "PPT Master"
+  },
+  "workspaceName": "285cfa7f",
+  "pipelineSteps": [
+    {
+      "name": "Topic Analysis",
+      "status": "completed",
+      "durationMs": 2391
+    },
+    {
+      "name": "Outline Generation",
+      "status": "completed",
+      "durationMs": 15603
+    },
+    {
+      "name": "Content Generation",
+      "status": "completed",
+      "durationMs": 24053
+    },
+    {
+      "name": "Visual Planning",
+      "status": "completed",
+      "durationMs": 12109
+    },
+    {
+      "name": "Layout Design",
+      "status": "completed",
+      "durationMs": 1
+    },
+    {
+      "name": "Image Integration",
+      "status": "completed",
+      "durationMs": 1
+    },
+    {
+      "name": "Assembly & Export",
+      "status": "completed",
+      "durationMs": 1
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "estimatedCostUsd": 0,
+    "apiCalls": 0
+  },
+  "totalDurationMs": 0,
+  "analysis": {
+    "topic": "Introduction to Machine Learning",
+    "audience": "students",
+    "tone": "educational",
+    "keyTopics": [
+      "What is Machine Learning?",
+      "Types of Machine Learning",
+      "Applications and Use Cases",
+      "Basic Algorithms and Concepts",
+      "Challenges and Ethical Considerations"
+    ],
+    "purpose": "inform",
+    "suggestedSlideCount": {
+      "min": 10,
+      "max": 15
+    }
+  },
+  "outline": {
+    "title": "Introduction to Machine Learning",
+    "subtitle": "Understanding the Fundamentals and Applications",
+    "slides": [
+      {
+        "index": 0,
+        "type": "title",
+        "layoutHint": "title-slide",
+        "title": "Introduction to Machine Learning",
+        "keyPoints": [
+          "What is Machine Learning?",
+          "Types of Machine Learning",
+          "Applications and Use Cases",
+          "Basic Algorithms and Concepts",
+          "Challenges and Ethical Considerations"
+        ],
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 1,
+        "type": "content",
+        "layoutHint": "content-header",
+        "title": "What is Machine Learning?",
+        "keyPoints": [
+          "Machine Learning (ML) is a subset of AI that enables systems to learn from data without explicit programming.",
+          "Focuses on developing algorithms that can identify patterns and make decisions.",
+          "Core idea: Improve performance through experience (data)."
+        ],
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 2,
+        "type": "section",
+        "layoutHint": "section-divider",
+        "title": "Types of Machine Learning",
+        "keyPoints": [
+          "Supervised Learning: Learn from labeled data (e.g., classification, regression).",
+          "Unsupervised Learning: Find hidden patterns in unlabeled data (e.g., clustering).",
+          "Reinforcement Learning: Learn through rewards and penalties (e.g., game AI)."
+        ],
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 3,
+        "type": "content",
+        "layoutHint": "two-column",
+        "title": "Applications and Algorithms",
+        "keyPoints": [
+          "Applications: Healthcare diagnostics, recommendation systems, fraud detection, self-driving cars.",
+          "Basic Algorithms: Linear Regression, Decision Trees, K-Means Clustering, Neural Networks."
+        ],
+        "needsImage": false,
+        "needsChart": true
+      },
+      {
+        "index": 4,
+        "type": "conclusion",
+        "layoutHint": "summary",
+        "title": "Challenges and Ethical Considerations",
+        "keyPoints": [
+          "Challenges: Data quality, overfitting, computational costs.",
+          "Ethical Issues: Bias in data, privacy concerns, job displacement.",
+          "Future: Responsible AI development and transparency."
+        ],
+        "needsImage": true,
+        "needsChart": false
+      }
+    ],
+    "narrativeArc": "This presentation will guide students through the core concepts of machine learning, starting with its definition, exploring its types, showcasing real-world applications, introducing basic algorithms, and concluding with challenges and ethical considerations."
+  },
+  "content": {
+    "slides": [
+      {
+        "index": 0,
+        "title": "Introduction to Machine Learning",
+        "subtitle": "Understanding the Fundamentals and Applications",
+        "content": [
+          "What is Machine Learning? A subset of AI that enables systems to learn from data without explicit programming.",
+          "Types of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning.",
+          "Applications and Use Cases: Healthcare diagnostics, recommendation systems, fraud detection, and self-driving cars.",
+          "Basic Algorithms and Concepts: Linear Regression, Decision Trees, K-Means Clustering, and Neural Networks.",
+          "Challenges and Ethical Considerations: Data quality, bias, privacy, and responsible AI development."
+        ],
+        "notes": "Welcome to this introduction to Machine Learning. Today, we'll explore the core concepts, types, applications, and ethical considerations of ML. This slide sets the stage for our journey into how machines learn from data."
+      },
+      {
+        "index": 1,
+        "title": "What is Machine Learning?",
+        "subtitle": "The Core Idea of Learning from Data",
+        "content": [
+          "Machine Learning (ML) is a subset of Artificial Intelligence that enables systems to learn from data without being explicitly programmed.",
+          "Focuses on developing algorithms that can identify patterns, make predictions, and improve performance through experience.",
+          "Core idea: The more data an algorithm processes, the better it becomes at tasks like classification, prediction, and decision-making.",
+          "Unlike traditional programming, ML systems adapt and evolve as they encounter new data."
+        ],
+        "notes": "Machine Learning is all about learning from data. Instead of writing explicit rules, we train algorithms on examples. For instance, instead of coding rules to recognize cats, we show thousands of cat images to the algorithm, and it learns the patterns on its own."
+      },
+      {
+        "index": 2,
+        "title": "Types of Machine Learning",
+        "subtitle": "How Machines Learn Differently",
+        "content": [
+          "Supervised Learning: Algorithms learn from labeled data (e.g., spam detection, house price prediction). The model is trained on input-output pairs.",
+          "Unsupervised Learning: Algorithms find hidden patterns in unlabeled data (e.g., customer segmentation, anomaly detection). No predefined answers are provided.",
+          "Reinforcement Learning: Agents learn through trial and error by receiving rewards or penalties (e.g., game AI, robotics). The goal is to maximize cumulative rewards."
+        ],
+        "notes": "There are three main types of Machine Learning. Supervised learning is like learning with a teacher, unsupervised learning is like exploring on your own, and reinforcement learning is like learning through feedback. Each type has unique strengths and use cases.",
+        "chartData": {
+          "type": "pie",
+          "title": "Types of Machine Learning",
+          "categories": [
+            "Supervised",
+            "Unsupervised",
+            "Reinforcement"
+          ],
+          "series": [
+            {
+              "name": "Learning Types",
+              "values": [
+                45,
+                35,
+                20
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "title": "Applications and Algorithms",
+        "subtitle": "Real-World Uses and Key Methods",
+        "content": [
+          "Applications: ML powers healthcare diagnostics (e.g., disease detection), recommendation systems (e.g., Netflix), fraud detection (e.g., credit card monitoring), and self-driving cars.",
+          "Basic Algorithms: Linear Regression predicts continuous values, Decision Trees make decisions based on data splits, K-Means Clustering groups similar data points, and Neural Networks model complex patterns."
+        ],
+        "notes": "Machine Learning is everywhere! From Netflix suggesting shows to doctors diagnosing diseases, ML algorithms are transforming industries. Let's explore some fundamental algorithms that power these applications.",
+        "chartData": {
+          "type": "bar",
+          "title": "ML Algorithm Popularity",
+          "categories": [
+            "Linear Regression",
+            "Decision Trees",
+            "K-Means",
+            "Neural Networks"
+          ],
+          "series": [
+            {
+              "name": "Usage Frequency",
+              "values": [
+                70,
+                85,
+                60,
+                90
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "title": "Challenges and Ethical Considerations",
+        "subtitle": "Navigating the Complexities of ML",
+        "content": [
+          "Challenges: Data quality issues (garbage in, garbage out), overfitting (models memorizing noise instead of patterns), and high computational costs.",
+          "Ethical Issues: Bias in data (e.g., discriminatory hiring algorithms), privacy concerns (e.g., data misuse), and job displacement due to automation.",
+          "Future: Responsible AI development emphasizes transparency, fairness, and accountability to ensure ML benefits society equitably."
+        ],
+        "notes": "While ML offers immense potential, it also poses significant challenges. Data bias can perpetuate discrimination, and privacy risks are growing. As future practitioners, we must prioritize ethical considerations to build trustworthy and inclusive AI systems.",
+        "chartData": {
+          "type": "doughnut",
+          "title": "ML Challenges Distribution",
+          "categories": [
+            "Data Quality",
+            "Overfitting",
+            "Computational Costs",
+            "Bias",
+            "Privacy"
+          ],
+          "series": [
+            {
+              "name": "Challenge Prevalence",
+              "values": [
+                25,
+                20,
+                15,
+                25,
+                15
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "visuals": {
+    "slides": [
+      {
+        "index": 0,
+        "hasImage": true,
+        "imagePrompt": "A sleek, abstract neural network visualization with glowing nodes and interconnected lines in shades of blue and purple, floating against a dark gradient background, representing the complexity and elegance of machine learning",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "visual"
+      },
+      {
+        "index": 1,
+        "hasImage": true,
+        "imagePrompt": "A futuristic brain icon with digital circuit patterns integrated into the neural structure, glowing with soft blue light, set against a minimalist dark background with subtle grid lines",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "balanced"
+      },
+      {
+        "index": 2,
+        "hasImage": true,
+        "imagePrompt": "Three distinct abstract icons representing supervised, unsupervised, and reinforcement learning, arranged in a triangular formation with connecting lines, using a cohesive color scheme of blue, teal, and purple",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "visual"
+      },
+      {
+        "index": 3,
+        "hasImage": false,
+        "hasChart": true,
+        "isComparison": true,
+        "isTimeline": false,
+        "emphasis": "data",
+        "imagePrompt": null
+      },
+      {
+        "index": 4,
+        "hasImage": true,
+        "imagePrompt": "A balance scale with one side showing a gear (representing technology) and the other side showing a human figure (representing ethics), with subtle circuit patterns in the background, rendered in a professional blue and gray palette",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "balanced"
+      }
+    ],
+    "imageStyleGuidance": "Flat vector illustration style with clean lines, professional corporate palette (blues, purples, teals), subtle gradients, and minimalist backgrounds with subtle tech elements like grid patterns or circuit lines"
+  },
+  "layout": {
+    "slides": [
+      {
+        "index": 0,
+        "layout": "title-slide",
+        "backgroundColor": "#0F172A",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 1.5,
+          "w": 11.8,
+          "h": 1.5
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 3.2,
+          "w": 11.8,
+          "h": 1
+        }
+      },
+      {
+        "index": 1,
+        "layout": "image-focused",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 11.8,
+          "h": 0.8
+        },
+        "contentPosition": {
+          "x": 6.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        },
+        "imagePosition": {
+          "x": 0.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        }
+      },
+      {
+        "index": 2,
+        "layout": "section-divider",
+        "backgroundColor": "#0F172A",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 2,
+          "w": 11.8,
+          "h": 1.5
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 3.8,
+          "w": 11.8,
+          "h": 0.8
+        }
+      },
+      {
+        "index": 3,
+        "layout": "chart-focused",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 11.8,
+          "h": 0.8
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 5.6,
+          "w": 11.8,
+          "h": 1
+        },
+        "chartPosition": {
+          "x": 0.5,
+          "y": 1.3,
+          "w": 11.8,
+          "h": 4.2
+        }
+      },
+      {
+        "index": 4,
+        "layout": "image-focused",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 11.8,
+          "h": 0.8
+        },
+        "contentPosition": {
+          "x": 6.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        },
+        "imagePosition": {
+          "x": 0.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        }
+      }
+    ]
+  },
+  "images": {
+    "slides": [
+      {
+        "index": 0,
+        "success": false,
+        "imagePrompt": "A sleek, abstract neural network visualization with glowing nodes and interconnected lines in shades of blue and purple, floating against a dark gradient background, representing the complexity and elegance of machine learning"
+      },
+      {
+        "index": 1,
+        "success": false,
+        "imagePrompt": "A futuristic brain icon with digital circuit patterns integrated into the neural structure, glowing with soft blue light, set against a minimalist dark background with subtle grid lines"
+      },
+      {
+        "index": 2,
+        "success": false,
+        "imagePrompt": "Three distinct abstract icons representing supervised, unsupervised, and reinforcement learning, arranged in a triangular formation with connecting lines, using a cohesive color scheme of blue, teal, and purple"
+      },
+      {
+        "index": 3,
+        "success": true,
+        "imagePrompt": null
+      },
+      {
+        "index": 4,
+        "success": false,
+        "imagePrompt": "A balance scale with one side showing a gear (representing technology) and the other side showing a human figure (representing ethics), with subtle circuit patterns in the background, rendered in a professional blue and gray palette"
+      }
+    ]
+  },
+  "presentation": {
+    "id": "ppt-1780929370178-si45mf",
+    "title": "Introduction to Machine Learning",
+    "slides": [
+      {
+        "id": "slide-1",
+        "type": "title",
+        "title": "Introduction to Machine Learning",
+        "subtitle": "Understanding the Fundamentals and Applications",
+        "content": [
+          "What is Machine Learning? A subset of AI that enables systems to learn from data without explicit programming.",
+          "Types of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning.",
+          "Applications and Use Cases: Healthcare diagnostics, recommendation systems, fraud detection, and self-driving cars.",
+          "Basic Algorithms and Concepts: Linear Regression, Decision Trees, K-Means Clustering, and Neural Networks.",
+          "Challenges and Ethical Considerations: Data quality, bias, privacy, and responsible AI development."
+        ],
+        "notes": "Welcome to this introduction to Machine Learning. Today, we'll explore the core concepts, types, applications, and ethical considerations of ML. This slide sets the stage for our journey into how machines learn from data.",
+        "layout": "title-slide",
+        "imagePrompt": "A sleek, abstract neural network visualization with glowing nodes and interconnected lines in shades of blue and purple, floating against a dark gradient background, representing the complexity and elegance of machine learning",
+        "backgroundColor": "#0F172A"
+      },
+      {
+        "id": "slide-2",
+        "type": "content",
+        "title": "What is Machine Learning?",
+        "subtitle": "The Core Idea of Learning from Data",
+        "content": [
+          "Machine Learning (ML) is a subset of Artificial Intelligence that enables systems to learn from data without being explicitly programmed.",
+          "Focuses on developing algorithms that can identify patterns, make predictions, and improve performance through experience.",
+          "Core idea: The more data an algorithm processes, the better it becomes at tasks like classification, prediction, and decision-making.",
+          "Unlike traditional programming, ML systems adapt and evolve as they encounter new data."
+        ],
+        "notes": "Machine Learning is all about learning from data. Instead of writing explicit rules, we train algorithms on examples. For instance, instead of coding rules to recognize cats, we show thousands of cat images to the algorithm, and it learns the patterns on its own.",
+        "layout": "image-focused",
+        "imagePrompt": "A futuristic brain icon with digital circuit patterns integrated into the neural structure, glowing with soft blue light, set against a minimalist dark background with subtle grid lines",
+        "backgroundColor": "#F8FAFC"
+      },
+      {
+        "id": "slide-3",
+        "type": "section",
+        "title": "Types of Machine Learning",
+        "subtitle": "How Machines Learn Differently",
+        "content": [
+          "Supervised Learning: Algorithms learn from labeled data (e.g., spam detection, house price prediction). The model is trained on input-output pairs.",
+          "Unsupervised Learning: Algorithms find hidden patterns in unlabeled data (e.g., customer segmentation, anomaly detection). No predefined answers are provided.",
+          "Reinforcement Learning: Agents learn through trial and error by receiving rewards or penalties (e.g., game AI, robotics). The goal is to maximize cumulative rewards."
+        ],
+        "notes": "There are three main types of Machine Learning. Supervised learning is like learning with a teacher, unsupervised learning is like exploring on your own, and reinforcement learning is like learning through feedback. Each type has unique strengths and use cases.",
+        "layout": "section-divider",
+        "chart": {
+          "type": "pie",
+          "title": "Types of Machine Learning",
+          "categories": [
+            "Supervised",
+            "Unsupervised",
+            "Reinforcement"
+          ],
+          "series": [
+            {
+              "name": "Learning Types",
+              "values": [
+                45,
+                35,
+                20
+              ]
+            }
+          ]
+        },
+        "imagePrompt": "Three distinct abstract icons representing supervised, unsupervised, and reinforcement learning, arranged in a triangular formation with connecting lines, using a cohesive color scheme of blue, teal, and purple",
+        "backgroundColor": "#0F172A"
+      },
+      {
+        "id": "slide-4",
+        "type": "content",
+        "title": "Applications and Algorithms",
+        "subtitle": "Real-World Uses and Key Methods",
+        "content": [
+          "Applications: ML powers healthcare diagnostics (e.g., disease detection), recommendation systems (e.g., Netflix), fraud detection (e.g., credit card monitoring), and self-driving cars.",
+          "Basic Algorithms: Linear Regression predicts continuous values, Decision Trees make decisions based on data splits, K-Means Clustering groups similar data points, and Neural Networks model complex patterns."
+        ],
+        "notes": "Machine Learning is everywhere! From Netflix suggesting shows to doctors diagnosing diseases, ML algorithms are transforming industries. Let's explore some fundamental algorithms that power these applications.",
+        "layout": "chart-focused",
+        "chart": {
+          "type": "bar",
+          "title": "ML Algorithm Popularity",
+          "categories": [
+            "Linear Regression",
+            "Decision Trees",
+            "K-Means",
+            "Neural Networks"
+          ],
+          "series": [
+            {
+              "name": "Usage Frequency",
+              "values": [
+                70,
+                85,
+                60,
+                90
+              ]
+            }
+          ]
+        },
+        "backgroundColor": "#F8FAFC"
+      },
+      {
+        "id": "slide-5",
+        "type": "conclusion",
+        "title": "Challenges and Ethical Considerations",
+        "subtitle": "Navigating the Complexities of ML",
+        "content": [
+          "Challenges: Data quality issues (garbage in, garbage out), overfitting (models memorizing noise instead of patterns), and high computational costs.",
+          "Ethical Issues: Bias in data (e.g., discriminatory hiring algorithms), privacy concerns (e.g., data misuse), and job displacement due to automation.",
+          "Future: Responsible AI development emphasizes transparency, fairness, and accountability to ensure ML benefits society equitably."
+        ],
+        "notes": "While ML offers immense potential, it also poses significant challenges. Data bias can perpetuate discrimination, and privacy risks are growing. As future practitioners, we must prioritize ethical considerations to build trustworthy and inclusive AI systems.",
+        "layout": "image-focused",
+        "chart": {
+          "type": "doughnut",
+          "title": "ML Challenges Distribution",
+          "categories": [
+            "Data Quality",
+            "Overfitting",
+            "Computational Costs",
+            "Bias",
+            "Privacy"
+          ],
+          "series": [
+            {
+              "name": "Challenge Prevalence",
+              "values": [
+                25,
+                20,
+                15,
+                25,
+                15
+              ]
+            }
+          ]
+        },
+        "imagePrompt": "A balance scale with one side showing a gear (representing technology) and the other side showing a human figure (representing ethics), with subtle circuit patterns in the background, rendered in a professional blue and gray palette",
+        "backgroundColor": "#F8FAFC"
+      }
+    ],
+    "design": {
+      "primaryColor": "#0F172A",
+      "secondaryColor": "#3B82F6",
+      "accentColor": "#10B981",
+      "backgroundColor": "#F8FAFC",
+      "textColor": "#1E293B",
+      "titleFont": "Segoe UI",
+      "bodyFont": "Segoe UI Light",
+      "style": "tech"
+    },
+    "author": "PPT Master",
+    "canvasFormat": "ppt169",
+    "language": "en",
+    "createdAt": "2026-06-08T14:36:10.178Z"
+  }
+}

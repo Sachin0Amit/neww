@@ -248,3 +248,193 @@ export interface ImageGenRequest {
   slideIndex?: number
   size?: string
 }
+
+// =================== Pipeline Intermediate Types ===================
+
+/** Step 1: Topic analysis result */
+export interface TopicAnalysis {
+  /** Main topic identified */
+  topic: string
+  /** Target audience */
+  audience: string
+  /** Tone / style guidance */
+  tone: string
+  /** Key themes / subtopics */
+  keyTopics: string[]
+  /** Purpose of presentation */
+  purpose: string
+  /** Suggested slide count range */
+  suggestedSlideCount: { min: number; max: number }
+  /** Source material summary (if provided) */
+  sourceSummary?: string
+}
+
+/** Step 2: Slide outline entry */
+export interface SlideOutlineEntry {
+  /** Slide index (0-based) */
+  index: number
+  /** Slide type */
+  type: SlideType
+  /** Title */
+  title: string
+  /** Key points / bullets */
+  keyPoints: string[]
+  /** Layout hint */
+  layoutHint: SlideLayout
+  /** Whether this slide needs an image */
+  needsImage: boolean
+  /** Whether this slide needs a chart */
+  needsChart: boolean
+}
+
+/** Step 2: Outline generation result */
+export interface OutlineResult {
+  /** Presentation title */
+  title: string
+  /** Subtitle / tagline */
+  subtitle: string
+  /** Slide outlines */
+  slides: SlideOutlineEntry[]
+  /** Overall narrative arc description */
+  narrativeArc: string
+}
+
+/** Step 3: Full slide content */
+export interface SlideContent {
+  /** Slide index */
+  index: number
+  /** Title */
+  title: string
+  /** Subtitle */
+  subtitle?: string
+  /** Body content as bullet points */
+  content: string[]
+  /** Speaker notes */
+  notes: string
+  /** Chart data (if applicable) */
+  chartData?: {
+    type: ChartType
+    title: string
+    categories: string[]
+    series: Array<{ name: string; values: number[] }>
+  }
+}
+
+/** Step 3: Content generation result */
+export interface ContentResult {
+  slides: SlideContent[]
+}
+
+/** Step 4: Visual plan for a single slide */
+export interface SlideVisualPlan {
+  /** Slide index */
+  index: number
+  /** Whether to include an image */
+  hasImage: boolean
+  /** Image prompt (if hasImage) */
+  imagePrompt?: string
+  /** Whether to include a chart */
+  hasChart: boolean
+  /** Whether this is a comparison slide */
+  isComparison: boolean
+  /** Whether this is a timeline slide */
+  isTimeline: boolean
+  /** Suggested visual emphasis */
+  emphasis: 'text' | 'visual' | 'data' | 'balanced'
+}
+
+/** Step 4: Visual planning result */
+export interface VisualPlanResult {
+  slides: SlideVisualPlan[]
+  /** Image style guidance for AI generation */
+  imageStyleGuidance: string
+}
+
+/** Step 5: Layout design for a single slide */
+export interface SlideLayoutDesign {
+  /** Slide index */
+  index: number
+  /** Applied layout */
+  layout: SlideLayout
+  /** Background color (hex) */
+  backgroundColor: string
+  /** Title position and size */
+  titlePosition: { x: number; y: number; w: number; h: number }
+  /** Content position and size */
+  contentPosition: { x: number; y: number; w: number; h: number }
+  /** Image position (if applicable) */
+  imagePosition?: { x: number; y: number; w: number; h: number }
+  /** Chart position (if applicable) */
+  chartPosition?: { x: number; y: number; w: number; h: number }
+}
+
+/** Step 5: Layout design result */
+export interface LayoutDesignResult {
+  slides: SlideLayoutDesign[]
+}
+
+/** Step 6: Image generation result per slide */
+export interface SlideImageResult {
+  /** Slide index */
+  index: number
+  /** Base64 image data */
+  imageData?: string
+  /** Image prompt used */
+  imagePrompt?: string
+  /** Whether image generation succeeded */
+  success: boolean
+  /** Error if failed */
+  error?: string
+}
+
+/** Step 6: Image generation result */
+export interface ImageGenResult {
+  slides: SlideImageResult[]
+}
+
+/** Complete pipeline context — carries all intermediate results */
+export interface PipelineContext {
+  /** Original generation config */
+  config: GenerationConfig
+  /** Workspace name */
+  workspaceName: string
+  /** Step 1: Topic analysis */
+  analysis?: TopicAnalysis
+  /** Step 2: Outline */
+  outline?: OutlineResult
+  /** Step 3: Content */
+  content?: ContentResult
+  /** Step 4: Visual plan */
+  visuals?: VisualPlanResult
+  /** Step 5: Layout design */
+  layout?: LayoutDesignResult
+  /** Step 6: Generated images */
+  images?: ImageGenResult
+  /** Step 7: Final presentation */
+  presentation?: Presentation
+  /** Output PPTX file path */
+  outputFilePath?: string
+  /** Pipeline steps tracking */
+  pipelineSteps: PipelineStep[]
+  /** Accumulated token usage */
+  tokenUsage: TokenUsage
+  /** Total duration in ms */
+  totalDurationMs: number
+}
+
+/** Audio generation request */
+export interface AudioGenRequest {
+  text: string
+  voice?: string
+  speed?: number
+  format?: 'mp3' | 'wav' | 'pcm' | 'opus'
+  slideIndex?: number
+}
+
+/** Audio generation result */
+export interface AudioGenResult {
+  audioData: unknown
+  slideIndex?: number
+  voice: string
+  duration?: number
+}

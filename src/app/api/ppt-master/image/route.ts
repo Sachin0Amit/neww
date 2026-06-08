@@ -1,19 +1,43 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { generateImage } from '@/lib/ai-sdk'
+import { isOk } from '@/lib/types'
 
 export async function GET() {
   return NextResponse.json({
     backends: [
-      { id: 'openai', name: 'OpenAI DALL-E', requires: 'OPENAI_API_KEY' },
-      { id: 'gemini', name: 'Google Gemini', requires: 'GEMINI_API_KEY' },
-      { id: 'flux', name: 'Black Forest Labs FLUX', requires: 'BFL_API_KEY' },
-      { id: 'stability', name: 'Stability AI', requires: 'STABILITY_API_KEY' },
-      { id: 'qwen', name: 'Qwen', requires: 'QWEN_API_KEY' },
-    ],
-    searchProviders: [
-      { id: 'openverse', name: 'Openverse', requires: null },
-      { id: 'wikimedia', name: 'Wikimedia Commons', requires: null },
-      { id: 'pexels', name: 'Pexels', requires: 'PEXELS_API_KEY' },
-      { id: 'pixabay', name: 'Pixabay', requires: 'PIXABAY_API_KEY' },
+      { id: 'ai-generation', name: 'AI Image Generation', description: 'Generate images from text prompts' },
+      { id: 'web-search', name: 'Web Image Search', description: 'Search for images on the web' },
     ],
   })
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json()
+    const { prompt, size } = body
+
+    if (!prompt) {
+      return NextResponse.json({ error: 'Prompt is required' }, { status: 400 })
+    }
+
+    const result = await generateImage({
+      prompt,
+      size: size || '1024x1024',
+    })
+
+    if (isOk(result)) {
+      return NextResponse.json({
+        success: true,
+        imageBase64: result.value.imageBase64,
+        prompt,
+      })
+    }
+
+    return NextResponse.json({ error: 'Image generation failed' }, { status: 500 })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Image generation failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
+  }
 }

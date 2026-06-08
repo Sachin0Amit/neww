@@ -1,0 +1,621 @@
+{
+  "config": {
+    "topic": "Introduction to Machine Learning",
+    "canvasFormat": "ppt169",
+    "style": "tech",
+    "slideCount": 5,
+    "language": "en",
+    "includeImages": false,
+    "includeCharts": true,
+    "author": "PPT Master"
+  },
+  "workspaceName": "ppt-2026-06-08T14-38-19-a673fd",
+  "pipelineSteps": [
+    {
+      "name": "Topic Analysis",
+      "status": "completed",
+      "durationMs": 3397
+    },
+    {
+      "name": "Outline Generation",
+      "status": "completed",
+      "durationMs": 14336
+    },
+    {
+      "name": "Content Generation",
+      "status": "completed",
+      "durationMs": 17703
+    },
+    {
+      "name": "Visual Planning",
+      "status": "completed",
+      "durationMs": 10490
+    },
+    {
+      "name": "Layout Design",
+      "status": "completed",
+      "durationMs": 3
+    },
+    {
+      "name": "Image Integration",
+      "status": "completed",
+      "durationMs": 1
+    },
+    {
+      "name": "Assembly & Export",
+      "status": "completed",
+      "durationMs": 1
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "estimatedCostUsd": 0,
+    "apiCalls": 0
+  },
+  "totalDurationMs": 0,
+  "analysis": {
+    "topic": "Introduction to Machine Learning",
+    "audience": "students",
+    "tone": "educational",
+    "keyTopics": [
+      "What is Machine Learning?",
+      "Types of Machine Learning",
+      "Applications and Use Cases",
+      "Getting Started with ML"
+    ],
+    "purpose": "inform",
+    "suggestedSlideCount": {
+      "min": 10,
+      "max": 15
+    }
+  },
+  "outline": {
+    "title": "Introduction to Machine Learning",
+    "subtitle": "Unlocking the Power of Data-Driven Intelligence",
+    "slides": [
+      {
+        "index": 0,
+        "type": "title",
+        "title": "Introduction to Machine Learning",
+        "keyPoints": [
+          "Explore the basics of ML and its significance",
+          "Understand how machines learn from data",
+          "Discover the potential of AI in everyday life"
+        ],
+        "layoutHint": "title-slide",
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 1,
+        "type": "content",
+        "title": "What is Machine Learning?",
+        "keyPoints": [
+          "ML is a subset of AI that enables systems to learn and improve from experience",
+          "Focuses on developing algorithms that can identify patterns in data",
+          "Key difference: Traditional programming vs. learning from examples"
+        ],
+        "layoutHint": "content-header",
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 2,
+        "type": "section",
+        "title": "Types of Machine Learning",
+        "keyPoints": [
+          "Supervised Learning: Learning from labeled data",
+          "Unsupervised Learning: Finding patterns in unlabeled data",
+          "Reinforcement Learning: Learning through trial and error"
+        ],
+        "layoutHint": "two-column",
+        "needsImage": false,
+        "needsChart": true
+      },
+      {
+        "index": 3,
+        "type": "content",
+        "title": "Applications and Use Cases",
+        "keyPoints": [
+          "Healthcare: Disease diagnosis and drug discovery",
+          "Finance: Fraud detection and algorithmic trading",
+          "Retail: Recommendation systems and demand forecasting"
+        ],
+        "layoutHint": "numbered-list",
+        "needsImage": true,
+        "needsChart": false
+      },
+      {
+        "index": 4,
+        "type": "conclusion",
+        "title": "Getting Started with ML",
+        "keyPoints": [
+          "Learn Python and essential libraries (NumPy, Pandas)",
+          "Practice with beginner-friendly datasets",
+          "Explore online courses and communities"
+        ],
+        "layoutHint": "summary",
+        "needsImage": false,
+        "needsChart": false
+      }
+    ],
+    "narrativeArc": "A beginner-friendly journey into the fundamentals of machine learning, covering its definition, types, real-world applications, and practical steps to get started."
+  },
+  "content": {
+    "slides": [
+      {
+        "index": 0,
+        "title": "Introduction to Machine Learning",
+        "subtitle": "Unlocking the Power of Data-Driven Intelligence",
+        "content": [
+          "Explore the basics of ML and its significance in transforming industries and everyday life.",
+          "Understand how machines learn from data to make predictions and decisions without explicit programming.",
+          "Discover the potential of AI in applications like recommendation systems, healthcare, and automation."
+        ],
+        "notes": "Start with a hook to engage students—ask if they've used Netflix or Spotify recommendations. Emphasize that ML is everywhere, even if they don't notice it. Transition by defining ML as a subset of AI that focuses on learning from data."
+      },
+      {
+        "index": 1,
+        "title": "What is Machine Learning?",
+        "subtitle": "From Traditional Programming to Data-Driven Learning",
+        "content": [
+          "ML is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed.",
+          "It focuses on developing algorithms that can identify patterns, make predictions, or classify data based on examples.",
+          "Unlike traditional programming (where rules are hardcoded), ML learns from data to adapt and improve over time."
+        ],
+        "notes": "Use a simple analogy: Traditional programming is like giving a recipe, while ML is like teaching someone to cook by showing them examples. Highlight that ML thrives on data—more data often leads to better performance.",
+        "chartData": {
+          "type": "bar",
+          "title": "Traditional Programming vs. Machine Learning",
+          "categories": [
+            "Rule-Based",
+            "Data-Driven",
+            "Adaptability",
+            "Scalability"
+          ],
+          "series": [
+            {
+              "name": "Traditional Programming",
+              "values": [
+                90,
+                20,
+                10,
+                30
+              ]
+            },
+            {
+              "name": "Machine Learning",
+              "values": [
+                30,
+                90,
+                85,
+                80
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "title": "Types of Machine Learning",
+        "subtitle": "Learning Approaches for Different Problems",
+        "content": [
+          "Supervised Learning: Uses labeled data to train models for tasks like classification (e.g., spam detection) and regression (e.g., predicting prices).",
+          "Unsupervised Learning: Finds hidden patterns in unlabeled data, such as clustering (e.g., customer segmentation) or dimensionality reduction.",
+          "Reinforcement Learning: Agents learn optimal actions through trial and error, rewarded for correct decisions (e.g., game AI or robotics)."
+        ],
+        "notes": "Explain each type with relatable examples. For supervised learning, mention email spam filters. For unsupervised, discuss how Netflix groups users by preferences. For reinforcement, use self-driving cars as an example.",
+        "chartData": {
+          "type": "pie",
+          "title": "Distribution of ML Types in Industry",
+          "categories": [
+            "Supervised",
+            "Unsupervised",
+            "Reinforcement"
+          ],
+          "series": [
+            {
+              "name": "Usage Share",
+              "values": [
+                65,
+                30,
+                5
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "title": "Applications and Use Cases",
+        "subtitle": "ML in Action Across Industries",
+        "content": [
+          "Healthcare: ML algorithms assist in diagnosing diseases (e.g., cancer detection from medical images) and accelerating drug discovery.",
+          "Finance: Banks use ML for fraud detection (identifying unusual transactions) and algorithmic trading (predicting market trends).",
+          "Retail: Recommendation systems (e.g., Amazon's 'Customers who bought this also bought') and demand forecasting optimize inventory and sales."
+        ],
+        "notes": "Encourage students to think of their own examples—like Instagram's photo tagging or Siri's voice recognition. Emphasize how ML solves real-world problems, making processes faster and more accurate.",
+        "chartData": {
+          "type": "doughnut",
+          "title": "Top ML Application Areas",
+          "categories": [
+            "Healthcare",
+            "Finance",
+            "Retail",
+            "Entertainment",
+            "Transportation"
+          ],
+          "series": [
+            {
+              "name": "Adoption Rate",
+              "values": [
+                25,
+                20,
+                18,
+                22,
+                15
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "title": "Getting Started with ML",
+        "subtitle": "Your Path to Mastering Machine Learning",
+        "content": [
+          "Learn Python and essential libraries like NumPy (numerical computing), Pandas (data manipulation), and Scikit-learn (ML algorithms).",
+          "Practice with beginner-friendly datasets (e.g., Iris, Titanic, or MNIST) to build and evaluate your first models.",
+          "Explore online courses (Coursera, edX) and communities (Kaggle, GitHub) to collaborate and learn from others."
+        ],
+        "notes": "End with actionable steps. Recommend starting with Andrew Ng's ML course on Coursera. Mention Kaggle competitions as a fun way to practice. Encourage students to experiment and not fear failure—learning is iterative!"
+      }
+    ]
+  },
+  "visuals": {
+    "slides": [
+      {
+        "index": 0,
+        "hasImage": true,
+        "imagePrompt": "A sleek, abstract representation of a neural network with glowing nodes and interconnected lines, set against a dark blue gradient background with subtle geometric patterns",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "visual"
+      },
+      {
+        "index": 1,
+        "hasImage": true,
+        "imagePrompt": "A conceptual illustration showing a human brain icon transitioning into a digital circuit pattern, with data points flowing between them, using a tech-inspired color scheme of blues and purples",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "balanced"
+      },
+      {
+        "index": 2,
+        "hasImage": false,
+        "imagePrompt": null,
+        "hasChart": true,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "data"
+      },
+      {
+        "index": 3,
+        "hasImage": true,
+        "imagePrompt": "A collage of modern tech icons representing various ML applications: a car for autonomous driving, a medical cross for healthcare, a shopping cart for e-commerce, and a speech bubble for NLP, all integrated into a cohesive digital landscape",
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "visual"
+      },
+      {
+        "index": 4,
+        "hasImage": false,
+        "imagePrompt": null,
+        "hasChart": false,
+        "isComparison": false,
+        "isTimeline": false,
+        "emphasis": "text"
+      }
+    ],
+    "imageStyleGuidance": "Flat vector illustration style with clean lines, professional corporate palette of blues, purples, and teals, subtle gradients, geometric elements, and a modern tech aesthetic suitable for professional presentations"
+  },
+  "layout": {
+    "slides": [
+      {
+        "index": 0,
+        "layout": "title-slide",
+        "backgroundColor": "#0F172A",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 1.5,
+          "w": 11.8,
+          "h": 1.5
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 3.2,
+          "w": 11.8,
+          "h": 1
+        }
+      },
+      {
+        "index": 1,
+        "layout": "image-focused",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 11.8,
+          "h": 0.8
+        },
+        "contentPosition": {
+          "x": 6.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        },
+        "imagePosition": {
+          "x": 0.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        }
+      },
+      {
+        "index": 2,
+        "layout": "section-divider",
+        "backgroundColor": "#0F172A",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 2,
+          "w": 11.8,
+          "h": 1.5
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 3.8,
+          "w": 11.8,
+          "h": 0.8
+        }
+      },
+      {
+        "index": 3,
+        "layout": "image-focused",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 11.8,
+          "h": 0.8
+        },
+        "contentPosition": {
+          "x": 6.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        },
+        "imagePosition": {
+          "x": 0.5,
+          "y": 1.2,
+          "w": 5.800000000000001,
+          "h": 4.5
+        }
+      },
+      {
+        "index": 4,
+        "layout": "summary",
+        "backgroundColor": "#F8FAFC",
+        "titlePosition": {
+          "x": 0.5,
+          "y": 0.5,
+          "w": 11.8,
+          "h": 1
+        },
+        "contentPosition": {
+          "x": 0.5,
+          "y": 1.8,
+          "w": 11.8,
+          "h": 4
+        }
+      }
+    ]
+  },
+  "images": {
+    "slides": [
+      {
+        "index": 0,
+        "success": false,
+        "imagePrompt": "A sleek, abstract representation of a neural network with glowing nodes and interconnected lines, set against a dark blue gradient background with subtle geometric patterns"
+      },
+      {
+        "index": 1,
+        "success": false,
+        "imagePrompt": "A conceptual illustration showing a human brain icon transitioning into a digital circuit pattern, with data points flowing between them, using a tech-inspired color scheme of blues and purples"
+      },
+      {
+        "index": 2,
+        "success": true,
+        "imagePrompt": null
+      },
+      {
+        "index": 3,
+        "success": false,
+        "imagePrompt": "A collage of modern tech icons representing various ML applications: a car for autonomous driving, a medical cross for healthcare, a shopping cart for e-commerce, and a speech bubble for NLP, all integrated into a cohesive digital landscape"
+      },
+      {
+        "index": 4,
+        "success": true,
+        "imagePrompt": null
+      }
+    ]
+  },
+  "presentation": {
+    "id": "ppt-1780929545029-ekmlvs",
+    "title": "Introduction to Machine Learning",
+    "slides": [
+      {
+        "id": "slide-1",
+        "type": "title",
+        "title": "Introduction to Machine Learning",
+        "subtitle": "Unlocking the Power of Data-Driven Intelligence",
+        "content": [
+          "Explore the basics of ML and its significance in transforming industries and everyday life.",
+          "Understand how machines learn from data to make predictions and decisions without explicit programming.",
+          "Discover the potential of AI in applications like recommendation systems, healthcare, and automation."
+        ],
+        "notes": "Start with a hook to engage students—ask if they've used Netflix or Spotify recommendations. Emphasize that ML is everywhere, even if they don't notice it. Transition by defining ML as a subset of AI that focuses on learning from data.",
+        "layout": "title-slide",
+        "imagePrompt": "A sleek, abstract representation of a neural network with glowing nodes and interconnected lines, set against a dark blue gradient background with subtle geometric patterns",
+        "backgroundColor": "#0F172A"
+      },
+      {
+        "id": "slide-2",
+        "type": "content",
+        "title": "What is Machine Learning?",
+        "subtitle": "From Traditional Programming to Data-Driven Learning",
+        "content": [
+          "ML is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed.",
+          "It focuses on developing algorithms that can identify patterns, make predictions, or classify data based on examples.",
+          "Unlike traditional programming (where rules are hardcoded), ML learns from data to adapt and improve over time."
+        ],
+        "notes": "Use a simple analogy: Traditional programming is like giving a recipe, while ML is like teaching someone to cook by showing them examples. Highlight that ML thrives on data—more data often leads to better performance.",
+        "layout": "image-focused",
+        "chart": {
+          "type": "bar",
+          "title": "Traditional Programming vs. Machine Learning",
+          "categories": [
+            "Rule-Based",
+            "Data-Driven",
+            "Adaptability",
+            "Scalability"
+          ],
+          "series": [
+            {
+              "name": "Traditional Programming",
+              "values": [
+                90,
+                20,
+                10,
+                30
+              ]
+            },
+            {
+              "name": "Machine Learning",
+              "values": [
+                30,
+                90,
+                85,
+                80
+              ]
+            }
+          ]
+        },
+        "imagePrompt": "A conceptual illustration showing a human brain icon transitioning into a digital circuit pattern, with data points flowing between them, using a tech-inspired color scheme of blues and purples",
+        "backgroundColor": "#F8FAFC"
+      },
+      {
+        "id": "slide-3",
+        "type": "section",
+        "title": "Types of Machine Learning",
+        "subtitle": "Learning Approaches for Different Problems",
+        "content": [
+          "Supervised Learning: Uses labeled data to train models for tasks like classification (e.g., spam detection) and regression (e.g., predicting prices).",
+          "Unsupervised Learning: Finds hidden patterns in unlabeled data, such as clustering (e.g., customer segmentation) or dimensionality reduction.",
+          "Reinforcement Learning: Agents learn optimal actions through trial and error, rewarded for correct decisions (e.g., game AI or robotics)."
+        ],
+        "notes": "Explain each type with relatable examples. For supervised learning, mention email spam filters. For unsupervised, discuss how Netflix groups users by preferences. For reinforcement, use self-driving cars as an example.",
+        "layout": "section-divider",
+        "chart": {
+          "type": "pie",
+          "title": "Distribution of ML Types in Industry",
+          "categories": [
+            "Supervised",
+            "Unsupervised",
+            "Reinforcement"
+          ],
+          "series": [
+            {
+              "name": "Usage Share",
+              "values": [
+                65,
+                30,
+                5
+              ]
+            }
+          ]
+        },
+        "backgroundColor": "#0F172A"
+      },
+      {
+        "id": "slide-4",
+        "type": "content",
+        "title": "Applications and Use Cases",
+        "subtitle": "ML in Action Across Industries",
+        "content": [
+          "Healthcare: ML algorithms assist in diagnosing diseases (e.g., cancer detection from medical images) and accelerating drug discovery.",
+          "Finance: Banks use ML for fraud detection (identifying unusual transactions) and algorithmic trading (predicting market trends).",
+          "Retail: Recommendation systems (e.g., Amazon's 'Customers who bought this also bought') and demand forecasting optimize inventory and sales."
+        ],
+        "notes": "Encourage students to think of their own examples—like Instagram's photo tagging or Siri's voice recognition. Emphasize how ML solves real-world problems, making processes faster and more accurate.",
+        "layout": "image-focused",
+        "chart": {
+          "type": "doughnut",
+          "title": "Top ML Application Areas",
+          "categories": [
+            "Healthcare",
+            "Finance",
+            "Retail",
+            "Entertainment",
+            "Transportation"
+          ],
+          "series": [
+            {
+              "name": "Adoption Rate",
+              "values": [
+                25,
+                20,
+                18,
+                22,
+                15
+              ]
+            }
+          ]
+        },
+        "imagePrompt": "A collage of modern tech icons representing various ML applications: a car for autonomous driving, a medical cross for healthcare, a shopping cart for e-commerce, and a speech bubble for NLP, all integrated into a cohesive digital landscape",
+        "backgroundColor": "#F8FAFC"
+      },
+      {
+        "id": "slide-5",
+        "type": "conclusion",
+        "title": "Getting Started with ML",
+        "subtitle": "Your Path to Mastering Machine Learning",
+        "content": [
+          "Learn Python and essential libraries like NumPy (numerical computing), Pandas (data manipulation), and Scikit-learn (ML algorithms).",
+          "Practice with beginner-friendly datasets (e.g., Iris, Titanic, or MNIST) to build and evaluate your first models.",
+          "Explore online courses (Coursera, edX) and communities (Kaggle, GitHub) to collaborate and learn from others."
+        ],
+        "notes": "End with actionable steps. Recommend starting with Andrew Ng's ML course on Coursera. Mention Kaggle competitions as a fun way to practice. Encourage students to experiment and not fear failure—learning is iterative!",
+        "layout": "summary",
+        "backgroundColor": "#F8FAFC"
+      }
+    ],
+    "design": {
+      "primaryColor": "#0F172A",
+      "secondaryColor": "#3B82F6",
+      "accentColor": "#10B981",
+      "backgroundColor": "#F8FAFC",
+      "textColor": "#1E293B",
+      "titleFont": "Segoe UI",
+      "bodyFont": "Segoe UI Light",
+      "style": "tech"
+    },
+    "author": "PPT Master",
+    "canvasFormat": "ppt169",
+    "language": "en",
+    "createdAt": "2026-06-08T14:39:05.029Z"
+  }
+}

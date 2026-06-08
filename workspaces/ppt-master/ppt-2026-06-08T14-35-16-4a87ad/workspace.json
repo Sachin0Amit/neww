@@ -1,0 +1,61 @@
+{
+  "id": "ws-ppt-master-285cfa7f",
+  "name": "PPT: Introduction to Machine Learning",
+  "toolId": "ppt-master",
+  "status": "initializing",
+  "createdAt": "2026-06-08T14:35:16.015Z",
+  "updatedAt": "2026-06-08T14:35:16.015Z",
+  "progress": {
+    "currentStep": "Initializing",
+    "stepIndex": 0,
+    "totalSteps": 1,
+    "percent": 0,
+    "timestamp": "2026-06-08T14:35:16.015Z"
+  },
+  "tokenUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "estimatedCostUsd": 0,
+    "apiCalls": 0
+  },
+  "config": {
+    "topic": "Introduction to Machine Learning",
+    "canvasFormat": "ppt169",
+    "style": "tech",
+    "slideCount": 5,
+    "language": "en",
+    "includeImages": false,
+    "includeCharts": true,
+    "author": "PPT Master"
+  },
+  "pipelineSteps": [
+    {
+      "name": "Topic Analysis",
+      "status": "pending"
+    },
+    {
+      "name": "Outline Generation",
+      "status": "pending"
+    },
+    {
+      "name": "Content Generation",
+      "status": "pending"
+    },
+    {
+      "name": "Visual Planning",
+      "status": "pending"
+    },
+    {
+      "name": "Layout Design",
+      "status": "pending"
+    },
+    {
+      "name": "Image Integration",
+      "status": "pending"
+    },
+    {
+      "name": "Assembly & Export",
+      "status": "pending"
+    }
+  ]
+}

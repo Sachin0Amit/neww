@@ -1,30 +1,27 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { listAgents, runAgent } from '@/lib/fincept-terminal'
 
 export async function GET() {
   try {
-    const categories = [
-      { name: 'Market Intelligence', agents: ['MacroSentinel', 'SectorRotation', 'VolatilityWatch', 'EarningsTracker', 'FlowAnalyzer', 'DarkPoolMonitor'] },
-      { name: 'Technical Analysis', agents: ['ChartPattern', 'TrendDetector', 'SupportResistance', 'VolumeProfile', 'MomentumScout', 'FibonacciMaster'] },
-      { name: 'Fundamental Analysis', agents: ['ValueHunter', 'GrowthScout', 'DividendAnalyzer', 'BalanceSheetPro', 'CashFlowExpert', 'EarningsWhisper'] },
-      { name: 'Risk Management', agents: ['RiskAssessor', 'DrawdownGuard', 'CorrelationTracker', 'VaRCalculator', 'StressTester', 'HedgeStrategist'] },
-      { name: 'Alternative Data', agents: ['SentimentMiner', 'NewsRadar', 'SocialListener', 'InsiderTracker', 'SupplyChainIntel', 'SatelliteAnalyst'] },
-      { name: 'Options & Derivatives', agents: ['OptionsFlow', 'GreeksMonitor', 'VolSurface', 'IVRanker', 'CoveredCallPro', 'SpreadBuilder'] },
-      { name: 'Global Markets', agents: ['ForexSentinel'] },
-    ]
-
-    const agents = categories.flatMap((cat) =>
-      cat.agents.map((name, idx) => ({
-        id: `fincept-${name.toLowerCase()}`,
-        name, category: cat.name,
-        status: Math.random() > 0.15 ? 'ACTIVE' : 'IDLE',
-        lastActive: new Date(Date.now() - Math.floor(Math.random() * 3600000)).toISOString(),
-        accuracy: +(75 + Math.random() * 20).toFixed(1),
-        signals: Math.floor(Math.random() * 50) + 5,
-      }))
-    )
-
-    return NextResponse.json({ totalAgents: agents.length, agents })
+    const agents = await listAgents()
+    return NextResponse.json({ agents, count: agents.length })
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch agents', details: error instanceof Error ? error.message : 'Unknown' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to list agents', details: error instanceof Error ? error.message : 'Unknown' }, { status: 500 })
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json()
+    const { agentId, query } = body
+
+    if (!agentId || !query) {
+      return NextResponse.json({ error: 'agentId and query are required' }, { status: 400 })
+    }
+
+    const result = await runAgent(agentId, query)
+    return NextResponse.json(result)
+  } catch (error) {
+    return NextResponse.json({ error: 'Agent execution failed', details: error instanceof Error ? error.message : 'Unknown' }, { status: 500 })
   }
 }

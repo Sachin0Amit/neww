@@ -1,0 +1,12 @@
+{
+  "id": "acct-02f89467",
+  "name": "Paper Trading Account",
+  "initialBalance": 100000,
+  "cash": 100000,
+  "buyingPower": 200000,
+  "totalEquity": 100000,
+  "totalPnl": 0,
+  "totalPnlPercent": 0,
+  "createdAt": "2026-06-08T14:35:23.361Z",
+  "updatedAt": "2026-06-08T14:35:23.368Z"
+}
