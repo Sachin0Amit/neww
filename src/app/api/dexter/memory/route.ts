@@ -1,35 +1,53 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { searchMemories, getAllMemories, storeMemory, clearMemories } from '@/lib/dexter'
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url)
-  const query = searchParams.get('q') || ''
+  try {
+    const { searchParams } = new URL(req.url)
+    const query = searchParams.get('query')
 
-  return NextResponse.json({
-    results: [
-      { path: '.dexter/memory/MEMORY.md', snippet: 'User prefers growth stocks over value. Focus on tech sector with revenue growth >15%. Risk tolerance: moderate.', score: 0.92 },
-      { path: '.dexter/memory/2025-01-16.md', snippet: 'Analyzed NVDA earnings: strong data center growth, automotive segment lagging. User asked about DCF valuation.', score: 0.85 },
-      { path: '.dexter/memory/2025-01-15.md', snippet: 'User interested in AI infrastructure plays. Recommended looking at semiconductor equipment companies.', score: 0.78 },
-    ],
-    query,
-    total: 3,
-  })
+    if (query) {
+      const results = await searchMemories(query, 10)
+      return NextResponse.json({ query, results })
+    }
+
+    const entries = await getAllMemories()
+    return NextResponse.json({ entries, count: entries.length })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Memory search failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
+  }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { action, content, file } = body
+    const { key, value, confidence, source, tags } = body
 
-    return NextResponse.json({
-      success: true,
-      action,
-      file: file || '.dexter/memory/MEMORY.md',
-      message: `Memory ${action} successful`,
-    })
+    if (!key || !value) {
+      return NextResponse.json({ error: 'Key and value are required' }, { status: 400 })
+    }
+
+    const entry = await storeMemory(key, value, { confidence, source, tags })
+    return NextResponse.json({ success: true, entry }, { status: 201 })
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to update memory', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    )
+    return NextResponse.json({
+      error: 'Memory store failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
+  }
+}
+
+export async function DELETE() {
+  try {
+    await clearMemories()
+    return NextResponse.json({ success: true, message: 'All memories cleared' })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Memory clear failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
   }
 }

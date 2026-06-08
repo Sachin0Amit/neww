@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "cron-622a6ee7",
+      "name": "Morning Brief",
+      "enabled": true,
+      "createdAtMs": 1780926996914,
+      "updatedAtMs": 1780926996914,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "payload": {
+        "message": "Provide a brief market overview for major indices"
+      },
+      "fulfillment": "keep",
+      "state": {
+        "nextRunAtMs": 1780930596914,
+        "consecutiveErrors": 0
+      }
+    }
+  ]
+}

@@ -1,70 +1,65 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { listCronJobs, createCronJob, deleteCronJob } from '@/lib/dexter'
+import type { CronSchedule } from '@/lib/dexter'
 
 export async function GET() {
-  return NextResponse.json({
-    jobs: [
-      {
-        id: 'cron-001',
-        name: 'AAPL Price Alert',
-        schedule: { kind: 'every', everyMs: 3600000 },
-        message: 'Check if AAPL crosses $200',
-        fulfillmentMode: 'once',
-        lastRunAt: '2025-01-16T09:00:00Z',
-        nextRunAt: '2025-01-16T10:00:00Z',
-        enabled: true,
-        alertCount: 0,
-      },
-      {
-        id: 'cron-002',
-        name: 'Morning Market Brief',
-        schedule: { kind: 'cron', expr: '0 9 * * 1-5', tz: 'America/New_York' },
-        message: 'Provide a brief market overview for major indices and any overnight developments',
-        fulfillmentMode: 'keep',
-        lastRunAt: '2025-01-16T09:00:00Z',
-        nextRunAt: '2025-01-17T09:00:00Z',
-        enabled: true,
-        alertCount: 12,
-      },
-      {
-        id: 'cron-003',
-        name: 'BTC Weekly Analysis',
-        schedule: { kind: 'cron', expr: '0 18 * * 5', tz: 'UTC' },
-        message: 'Weekly Bitcoin on-chain analysis and trend assessment',
-        fulfillmentMode: 'keep',
-        lastRunAt: '2025-01-10T18:00:00Z',
-        nextRunAt: '2025-01-17T18:00:00Z',
-        enabled: true,
-        alertCount: 4,
-      },
-    ],
-  })
+  try {
+    const jobs = await listCronJobs()
+    return NextResponse.json({ jobs, count: jobs.length })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Failed to list cron jobs',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
+  }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { action, name, schedule, message, fulfillmentMode } = body
-
-    if (action === 'add') {
-      return NextResponse.json({
-        success: true,
-        job: {
-          id: `cron-${Date.now()}`,
-          name,
-          schedule,
-          message,
-          fulfillmentMode: fulfillmentMode || 'keep',
-          enabled: true,
-          nextRunAt: new Date(Date.now() + 60000).toISOString(),
-        },
-      })
+    const { name, schedule, message, model, fulfillment } = body as {
+      name: string
+      schedule: CronSchedule
+      message: string
+      model?: string
+      fulfillment?: 'keep' | 'once' | 'ask'
     }
 
-    return NextResponse.json({ success: true, action })
+    if (!name || !schedule || !message) {
+      return NextResponse.json({
+        error: 'Name, schedule, and message are required',
+      }, { status: 400 })
+    }
+
+    const job = await createCronJob({ name, schedule, message, model, fulfillment })
+    return NextResponse.json({ success: true, job }, { status: 201 })
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to manage cron jobs', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    )
+    return NextResponse.json({
+      error: 'Cron job creation failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url)
+    const jobId = searchParams.get('id')
+
+    if (!jobId) {
+      return NextResponse.json({ error: 'Job ID is required' }, { status: 400 })
+    }
+
+    const deleted = await deleteCronJob(jobId)
+    if (!deleted) {
+      return NextResponse.json({ error: 'Job not found' }, { status: 404 })
+    }
+
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Cron job deletion failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
   }
 }

@@ -1,52 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getStockPrice, getCryptoPrice, getMarketIndices, getSectorPerformance, getTopMovers } from '@/lib/dexter'
+import { isOk } from '@/lib/types'
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url)
-  const ticker = searchParams.get('ticker') || 'AAPL'
-  const type = searchParams.get('type') || 'stock' // stock | crypto
+  try {
+    const { searchParams } = new URL(req.url)
+    const ticker = searchParams.get('ticker')
+    const crypto = searchParams.get('crypto')
 
-  if (type === 'crypto') {
+    if (ticker) {
+      const result = await getStockPrice(ticker)
+      if (isOk(result)) {
+        return NextResponse.json({ type: 'stock', data: result.value })
+      }
+      return NextResponse.json({ error: 'Failed to fetch stock data' }, { status: 500 })
+    }
+
+    if (crypto) {
+      const result = await getCryptoPrice(crypto)
+      if (isOk(result)) {
+        return NextResponse.json({ type: 'crypto', data: result.value })
+      }
+      return NextResponse.json({ error: 'Failed to fetch crypto data' }, { status: 500 })
+    }
+
+    // Default: return market overview
+    const [indices, sectors, movers] = await Promise.all([
+      getMarketIndices(),
+      getSectorPerformance(),
+      getTopMovers(),
+    ])
+
     return NextResponse.json({
-      type: 'crypto',
-      ticker,
-      price: 97842.15,
-      change24h: 2.3,
-      change7d: 5.8,
-      marketCap: 1930000000000,
-      volume24h: 48200000000,
-      high24h: 98500,
-      low24h: 95200,
-      ath: 99500,
-      athDate: '2025-01-15',
-      circulatingSupply: 19700000,
-      sparkline: Array.from({ length: 24 }, (_, i) => 95000 + Math.random() * 3000),
+      indices: isOk(indices) ? indices.value : [],
+      sectors: isOk(sectors) ? sectors.value : [],
+      movers: isOk(movers) ? movers.value : [],
+      timestamp: new Date().toISOString(),
     })
+  } catch (error) {
+    return NextResponse.json({
+      error: 'Market data fetch failed',
+      details: error instanceof Error ? error.message : 'Unknown',
+    }, { status: 500 })
   }
-
-  return NextResponse.json({
-    type: 'stock',
-    ticker,
-    price: 198.45,
-    change: 1.2,
-    changePercent: 0.61,
-    open: 196.50,
-    high: 199.62,
-    low: 195.80,
-    volume: 54200000,
-    avgVolume: 48000000,
-    marketCap: 3080000000000,
-    pe: 32.4,
-    eps: 6.12,
-    dividend: 0.96,
-    dividendYield: 0.48,
-    beta: 1.24,
-    week52High: 199.62,
-    week52Low: 164.08,
-    sharesOutstanding: 15500000000,
-    float: 15300000000,
-    shortRatio: 1.2,
-    shortPercent: 0.007,
-    institutionalOwnership: 0.62,
-    sparkline: Array.from({ length: 30 }, (_, i) => 180 + Math.random() * 18),
-  })
 }

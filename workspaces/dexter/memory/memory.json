@@ -1,0 +1,71 @@
+{
+  "entries": [
+    {
+      "key": "user_risk_tolerance",
+      "value": "User prefers growth stocks with moderate risk tolerance",
+      "confidence": 0.8,
+      "timestamp": "2026-06-08T13:56:55.773Z",
+      "source": "user",
+      "tags": [
+        "preference",
+        "risk"
+      ]
+    },
+    {
+      "key": "company_of_interest",
+      "value": "NVIDIA (NVDA)",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:58:07.995Z",
+      "source": "agent",
+      "tags": [
+        "stock",
+        "company"
+      ]
+    },
+    {
+      "key": "last_checked_price",
+      "value": "$485.32",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:58:07.997Z",
+      "source": "agent",
+      "tags": [
+        "price",
+        "data"
+      ]
+    },
+    {
+      "key": "market_cap",
+      "value": "$1.19T",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:58:07.997Z",
+      "source": "agent",
+      "tags": [
+        "valuation",
+        "company"
+      ]
+    },
+    {
+      "key": "pe_ratio",
+      "value": "72.5",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:58:07.998Z",
+      "source": "agent",
+      "tags": [
+        "valuation",
+        "metric"
+      ]
+    },
+    {
+      "key": "stock_interest",
+      "value": "User is interested in NVIDIA stock",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:58:39.162Z",
+      "source": "agent",
+      "tags": [
+        "interest",
+        "stock"
+      ]
+    }
+  ],
+  "updatedAt": "2026-06-08T13:58:39.162Z"
+}
