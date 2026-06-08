@@ -1,0 +1,61 @@
+{
+  "threadId": "thread-10d2453d",
+  "entries": [
+    {
+      "key": "web_search_capabilities",
+      "value": "Assistant has web search capabilities to find current and up-to-date information on the internet",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:25:26.057Z",
+      "source": "agent",
+      "tags": [
+        "functionality",
+        "web search"
+      ]
+    },
+    {
+      "key": "web_search_functionality",
+      "value": "Can search using specific queries, retrieve multiple sources, analyze and synthesize information",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:25:26.059Z",
+      "source": "agent",
+      "tags": [
+        "functionality",
+        "web search"
+      ]
+    },
+    {
+      "key": "web_search_content_types",
+      "value": "Can search for current news, research, product info, technical docs, historical facts, company details, weather, and statistical data",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:25:26.060Z",
+      "source": "agent",
+      "tags": [
+        "functionality",
+        "web search"
+      ]
+    },
+    {
+      "key": "web_search_usage",
+      "value": "Users can ask to search for specific information using natural language requests",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:25:26.061Z",
+      "source": "agent",
+      "tags": [
+        "functionality",
+        "web search"
+      ]
+    },
+    {
+      "key": "web_search_limitations",
+      "value": "Cannot access paywalled content, subscription-based websites, real-time data streams, or very recently indexed information",
+      "confidence": 0.7,
+      "timestamp": "2026-06-08T13:25:26.061Z",
+      "source": "agent",
+      "tags": [
+        "limitations",
+        "web search"
+      ]
+    }
+  ],
+  "updatedAt": "2026-06-08T13:25:26.061Z"
+}

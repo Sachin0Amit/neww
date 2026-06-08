@@ -1,0 +1,29 @@
+{
+  "id": "ws-osiris-1f26276e",
+  "name": "OSIRIS: example.com",
+  "toolId": "osiris",
+  "status": "initializing",
+  "createdAt": "2026-06-08T13:30:16.602Z",
+  "updatedAt": "2026-06-08T13:30:16.602Z",
+  "progress": {
+    "currentStep": "Workspace created",
+    "stepIndex": 0,
+    "totalSteps": 1,
+    "percent": 0,
+    "timestamp": "2026-06-08T13:30:16.601Z"
+  },
+  "tokenUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "estimatedCostUsd": 0,
+    "apiCalls": 0
+  },
+  "target": "example.com",
+  "domain": "CYBER",
+  "reconResults": [],
+  "entities": [],
+  "threatIntel": [],
+  "metadata": {
+    "createdAt": "2026-06-08T13:30:16.601Z"
+  }
+}

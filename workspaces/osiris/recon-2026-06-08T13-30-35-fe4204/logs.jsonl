@@ -1,0 +1,7 @@
+{"timestamp":"2026-06-08T13:30:35.621Z","level":"info","message":"Workspace initialized: recon-2026-06-08T13-30-35-fe4204"}
+{"timestamp":"2026-06-08T13:30:35.623Z","level":"info","message":"Started: Running 2 recon tools"}
+{"timestamp":"2026-06-08T13:30:35.623Z","level":"info","message":"Starting reconnaissance on example.com with 2 tools"}
+{"timestamp":"2026-06-08T13:30:35.630Z","level":"info","message":"Started: Running dns_lookup"}
+{"timestamp":"2026-06-08T13:30:45.351Z","level":"info","message":"Started: Running whois_lookup"}
+{"timestamp":"2026-06-08T13:31:02.311Z","level":"info","message":"Reconnaissance completed: 2 tools executed"}
+{"timestamp":"2026-06-08T13:31:02.312Z","level":"info","message":"Reconnaissance complete: 2/2 successful"}
